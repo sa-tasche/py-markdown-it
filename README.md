@@ -4,7 +4,6 @@
 [![Coverage Status][codecov-badge]][codecov-link]
 [![PyPI][pypi-badge]][pypi-link]
 [![Conda][conda-badge]][conda-link]
-[![Code style: black][black-badge]][black-link]
 [![PyPI - Downloads][install-badge]][install-link]
 
 <p align="center">
@@ -33,11 +32,7 @@ for even more speed!
 
 ## Installation
 
-```bash
-conda install -c conda-forge markdown-it-py
-```
-
-or
+### PIP
 
 ```bash
 pip install markdown-it-py[plugins]
@@ -46,8 +41,19 @@ pip install markdown-it-py[plugins]
 or with extras
 
 ```bash
-conda install -c conda-forge markdown-it-py linkify-it-py mdit-py-plugins
 pip install markdown-it-py[linkify,plugins]
+```
+
+### Conda
+
+```bash
+conda install -c conda-forge markdown-it-py
+```
+
+or with extras
+
+```bash
+conda install -c conda-forge markdown-it-py linkify-it-py mdit-py-plugins
 ```
 
 ## Usage
@@ -63,7 +69,7 @@ from mdit_py_plugins.front_matter import front_matter_plugin
 from mdit_py_plugins.footnote import footnote_plugin
 
 md = (
-    MarkdownIt('commonmark' ,{'breaks':True,'html':True})
+    MarkdownIt('commonmark', {'breaks':True,'html':True})
     .use(front_matter_plugin)
     .use(footnote_plugin)
     .enable('table')
@@ -142,8 +148,6 @@ Also [John MacFarlane](https://github.com/jgm) for his work on the CommonMark sp
 [conda-link]: https://anaconda.org/conda-forge/markdown-it-py
 [codecov-badge]: https://codecov.io/gh/executablebooks/markdown-it-py/branch/master/graph/badge.svg
 [codecov-link]: https://codecov.io/gh/executablebooks/markdown-it-py
-[black-badge]: https://img.shields.io/badge/code%20style-black-000000.svg
-[black-link]: https://github.com/ambv/black
 [install-badge]: https://img.shields.io/pypi/dw/markdown-it-py?label=pypi%20installs
 [install-link]: https://pypistats.org/packages/markdown-it-py
 

@@ -32,7 +32,7 @@ All functions and class methods should be annotated with types and include a doc
 
 ## Testing
 
-For code tests, markdown-it-py uses [pytest](https://docs.pytest.org)):
+For code tests, markdown-it-py uses [pytest](https://docs.pytest.org):
 
 ```shell
 >> cd markdown-it-py
@@ -50,7 +50,7 @@ This can also be used to run benchmarking tests using [pytest-benchmark](https:/
 
 ```shell
 >> cd markdown-it-py
-tox -e py38-bench-packages -- --benchmark-min-rounds 50
+tox -e py39-bench-packages -- --benchmark-min-rounds 50
 ```
 
 For documentation build tests:

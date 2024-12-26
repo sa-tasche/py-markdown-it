@@ -1,9 +1,10 @@
-"""Utilities for parsing source text
-"""
+"""Utilities for parsing source text"""
+
 from __future__ import annotations
 
 import re
-from typing import Match, TypeVar
+from re import Match
+from typing import TypeVar
 
 from .entities import entities
 
@@ -70,9 +71,7 @@ def isValidEntityCode(c: int) -> bool:
     if c >= 0x7F and c <= 0x9F:
         return False
     # out of range
-    if c > 0x10FFFF:
-        return False
-    return True
+    return not (c > 0x10FFFF)
 
 
 def fromCodePoint(c: int) -> str:

@@ -14,18 +14,18 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
-     "Programming Language :: Python :: 3.11",
-     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Text Processing :: Markup",
 ]
 keywords = ["markdown", "lexer", "parser", "commonmark", "markdown-it"]
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [
     "mdurl~=0.1",
 ]
@@ -35,7 +35,6 @@ Homepage = "https://github.com/executablebooks/markdown-it-py"
 Documentation = "https://markdown-it-py.readthedocs.io"
 
 [project.optional-dependencies]
-code_style = ["pre-commit~=3.0"]
 compare = [
     "commonmark~=0.9",
     "markdown~=3.4",
@@ -70,6 +69,10 @@ benchmarking = [
 ]
 profiling = ["gprof2dot"]
 
+[dependency-groups]
+pre_commit = ["pre-commit"]
+mypy = ["mypy", "mdurl", "typing-extensions"]
+
 [project.scripts]
 markdown-it = "markdown_it.cli.parse:main"
 
@@ -83,7 +86,7 @@ exclude = [
     "benchmarking/"
 ]
 
-[tool.ruff]
+[tool.ruff.lint]
 extend-select = ["B0", "C4", "I", "ICN", "ISC", "N", "RUF", "SIM", "UP"]
 extend-ignore = ["ISC001", "ISC003", "N802", "N803", "N806", "N816", "RUF003"]
 
@@ -106,7 +109,7 @@ module = ["tests.test_plugins.*", "markdown.*"]
 ignore_errors = true
 
 [[tool.mypy.overrides]]
-module = ["markdown.*"]
+module = ["markdown.*", "linkify_it.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
